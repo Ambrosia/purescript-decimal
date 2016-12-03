@@ -1,14 +1,15 @@
 {
-  "name": "purescript-bigints",
-  "description": "Arbitrary length integers",
+  "name": "purescript-decimal",
+  "description": "Arbitrary length numbers",
   "license": "MIT",
-  "homepage": "https://github.com/sharkdp/purescript-bigints",
+  "homepage": "https://github.com/Ambrosia/purescript-decimal",
   "authors": [
-    "David Peter <mail@david-peter.de>"
+    "David Peter <mail@david-peter.de>",
+    "Ambrosia <ambrosia@hana.re>"
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/sharkdp/purescript-bigints.git"
+    "url": "git://github.com/Ambrosia/purescript-decimal.git"
   },
   "ignore": [
     "**/.*",
@@ -26,6 +27,7 @@
     "purescript-integers": "^2.0.0",
     "purescript-console": "^2.0.0",
     "purescript-assert": "^2.0.0",
-    "purescript-quickcheck": "^3.0.0"
+    "purescript-quickcheck": "^3.0.0",
+    "purescript-psci-support": "^2.0.0"
   }
 }

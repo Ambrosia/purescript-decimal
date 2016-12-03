@@ -2,4 +2,5 @@ node_modules
 bower_components
 output
 .psci*
+.psc-ide-port
 .pulp-cache
