@@ -16,7 +16,7 @@ import Prelude
 import Data.Maybe (Maybe(..))
 
 -- | An arbitrary length integer.
-foreign import data Decimal :: *
+foreign import data Decimal :: Type
 
 -- | FFI wrapper to parse a String into a Decimal.
 foreign import construct :: forall a. (a -> Maybe a)

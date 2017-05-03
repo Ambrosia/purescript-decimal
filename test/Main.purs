@@ -9,6 +9,7 @@ import Control.Monad.Eff.Random (RANDOM)
 import Data.Decimal (Decimal, abs, fromInt, fromString, pow, toNumber, toString, intDiv)
 import Data.Foldable (fold)
 import Data.Maybe (Maybe(..), fromMaybe)
+import Data.NonEmpty ((:|))
 import Test.Assert (ASSERT, assert)
 import Test.QuickCheck (QC, quickCheck)
 import Test.QuickCheck.Arbitrary (class Arbitrary)
@@ -29,7 +30,7 @@ newtype TestDecimal = TestDecimal Decimal
 instance arbitraryDecimal :: Arbitrary TestDecimal where
   arbitrary = do
     n <- (fromMaybe zero <<< fromString) <$> digitString
-    op <- elements id [negate]
+    op <- elements (id :| [negate])
     pure (TestDecimal (op n))
     where digits :: Gen Int
           digits = chooseInt 0 9
@@ -46,7 +47,7 @@ testBinary :: forall eff. (Decimal -> Decimal -> Decimal)
            -> QC eff Unit
 testBinary f g = quickCheck (\x y -> (fromInt x) `f` (fromInt y) == fromInt (x `g` y))
 
-main :: forall eff. Eff (console :: CONSOLE, assert :: ASSERT, random :: RANDOM, err :: EXCEPTION | eff) Unit
+main :: forall eff. Eff (console :: CONSOLE, assert :: ASSERT, random :: RANDOM, exception :: EXCEPTION | eff) Unit
 main = do
   log "Simple arithmetic operations and conversions from Int"
   let two = one + one

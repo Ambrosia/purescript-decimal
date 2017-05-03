@@ -4,7 +4,7 @@
     "build": "pulp test && rimraf docs && pulp docs"
   },
   "dependencies": {
-    "decimal.js": "^7.1.0"
+    "decimal.js": "^7.2.0"
   },
   "devDependencies": {
     "pulp": "^9.0.0",
