@@ -87,3 +87,23 @@ exports.intDiv = function(x) {
     return x.divToInt(y);
   };
 };
+
+exports.floor = function(x) {
+  return x.floor();
+}
+
+exports.ceil = function(x) {
+  return x.ceil();
+}
+
+exports.toNearest = function(x) {
+  return x.toNearest();
+}
+
+exports.truncated = function(x) {
+  return x.truncated();
+}
+
+exports.isInteger = function(x) {
+  return x.isInteger();
+}

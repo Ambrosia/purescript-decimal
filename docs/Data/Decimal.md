@@ -5,7 +5,7 @@ This module defines a `Decimal` data type for arbitrary length integers.
 #### `Decimal`
 
 ``` purescript
-data Decimal :: *
+data Decimal :: Type
 ```
 
 An arbitrary length integer.
@@ -19,6 +19,22 @@ Semiring Decimal
 Ring Decimal
 CommutativeRing Decimal
 EuclideanRing Decimal
+```
+
+#### `fromString`
+
+``` purescript
+fromString :: String -> Maybe Decimal
+```
+
+Parse a string into a `Decimal`, assuming a decimal representation. Returns
+`Nothing` if the parse fails.
+
+Examples:
+```purescript
+fromString "42"
+fromString "857981209301293808359384092830482"
+fromString "1e100"
 ```
 
 #### `fromInt`
@@ -37,14 +53,21 @@ fromNumber :: Number -> Decimal
 
 Convert a number to a Decimal.
 
-#### `toNumber`
+#### `toString`
 
 ``` purescript
-toNumber :: Decimal -> Number
+toString :: Decimal -> String
 ```
 
-Converts a Decimal to a Number. Loses precision for numbers which are too
-large.
+A decimal representation of the `Decimal` as a `String`.
+
+#### `abs`
+
+``` purescript
+abs :: Decimal -> Decimal
+```
+
+The absolute value.
 
 #### `pow`
 
@@ -55,42 +78,49 @@ pow :: Decimal -> Decimal -> Decimal
 Exponentiation for `Decimal`. If the exponent is less than 0, `pow`
 returns 0. Also, `pow zero zero == one`.
 
-#### `abs`
+#### `toNumber`
 
 ``` purescript
-abs :: Decimal -> Decimal
+toNumber :: Decimal -> Number
 ```
 
-The absolute value.
-
-#### `fromString`
-
-``` purescript
-fromString :: String -> Maybe Decimal
-```
-
-Parse a string into a `Decimal`, assuming a decimal representation. Returns
-`Nothing` if the parse fails.
-
-Examples:
-```purescript
-fromString "42"
-fromString "857981209301293808359384092830482"
-fromString "1e100"
-```
-
-#### `toString`
-
-``` purescript
-toString :: Decimal -> String
-```
-
-A decimal representation of the `Decimal` as a `String`.
+Converts a Decimal to a Number. Loses precision for numbers which are too
+large.
 
 #### `intDiv`
 
 ``` purescript
 intDiv :: Decimal -> Decimal -> Decimal
+```
+
+#### `floor`
+
+``` purescript
+floor :: Decimal -> Decimal
+```
+
+#### `ceil`
+
+``` purescript
+ceil :: Decimal -> Decimal
+```
+
+#### `toNearest`
+
+``` purescript
+toNearest :: Decimal -> Decimal
+```
+
+#### `truncated`
+
+``` purescript
+truncated :: Decimal -> Decimal
+```
+
+#### `isInteger`
+
+``` purescript
+isInteger :: Decimal -> Boolean
 ```
 
 
