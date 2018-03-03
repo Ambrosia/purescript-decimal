@@ -9,6 +9,11 @@ module Data.Decimal
   , pow
   , toNumber
   , intDiv
+  , floor
+  , ceil
+  , toNearest
+  , truncated
+  , isInteger
   ) where
 
 import Prelude
@@ -97,3 +102,13 @@ instance euclideanRingDecimal :: EuclideanRing Decimal where
   degree = degree <<< toNumber
 
 foreign import intDiv :: Decimal -> Decimal -> Decimal
+
+foreign import floor :: Decimal -> Decimal
+
+foreign import ceil :: Decimal -> Decimal
+
+foreign import toNearest :: Decimal -> Decimal
+
+foreign import truncated :: Decimal -> Decimal
+
+foreign import isInteger :: Decimal -> Boolean
